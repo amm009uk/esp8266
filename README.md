@@ -57,8 +57,8 @@ To get the device IP address you have the following options:
 
   1. Look in your router to see WiFi clients  
     
-  2. If already connected to WiFi and MQTT Broker, you can send a blank MQTT message as defined in **IP/Request**  
-     Device will respond with a MQTT message **IP/Reply** and IP address in the payload  
+  2. a. If already connected to WiFi and MQTT Broker, you can send a blank MQTT message **IP/Request**  
+     b. Device will respond with a MQTT message **IP/Reply** and IP address in the payload  
 
 -------------------------------------------------------------------------------------------------------------
 ## Credits
