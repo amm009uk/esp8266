@@ -7,4 +7,4 @@
 //#define WEMOS
 
 #define ssid      "AMM-IoT"
-#define password  "Jabeen01"
+#define password  "XXXXXX"
