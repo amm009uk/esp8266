@@ -5,7 +5,7 @@
 -------------------------------------------------------------------------------------------------------------
 ## Features
 
-- Custom firmware to take full control and integrate with an MQTT Broker. The Broker would typically integrate with your Home Automation system
+- Custom firmware to take full control and integrate with an MQTT Broker. The Broker would typically integrate with your Home Automation system so no device control over HTTP/Web
 
 - One firmware to support multiple devices:
     1. SonOff Basic
@@ -55,13 +55,9 @@
 ## Finding device IP Address
 To get the device IP address you have the following options:  
 
-  1. Look at the Serial output where it will show on startup (assuming you have debug output turned on)  
-  
-  2. Look in your router to see WiFi clients  
-  
-  3. Try an mDNS browser app but this often takes a very time to get the device showing up  
-  
-  4. If already connected to WiFi and MQTT Broker, you can send a blank MQTT message as defined in user.h at **"IP_REQUEST"**  
+  1. Look in your router to see WiFi clients  
+    
+  2. If already connected to WiFi and MQTT Broker, you can send a blank MQTT message as defined in user.h at **"IP_REQUEST"**  
      Device will respond with a MQTT message such as defined with **"IP/REPLY/\<deviceID\>"** with the IP address in the payload  
 
 -------------------------------------------------------------------------------------------------------------
@@ -73,4 +69,4 @@ I am simply reusing other peoples amazing work for instance the following librar
 
 AND OF COURSE the many examples on github  
 
-My development environment is with Atom with its builtin PlatformIO toolset. Its a fantastic build and debug environment!
+My development environment is with VSCode + PlatformIO
