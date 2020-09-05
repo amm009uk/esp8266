@@ -38,18 +38,18 @@
 
 1. Set your WiFi SSID and PASSWORD in **User.h**. *Only place you can do this*
 
-1. Set your ESP8266 Web access USER and PASSWORD in **User.h**. *Only place you can do this*
+2. Set your ESP8266 Web access USER and PASSWORD in **User.h**. *Only place you can do this*
 
-2. Flash the file system *LittleFS in this case*
+3. Flash the file system *LittleFS in this case*
 
-3. Flash firmware
+4. Flash firmware
 
-4. Use must power on/off after flashing firmware due a bug within esp8266 causing reboot to hang  
+5. Use must power on/off after flashing firmware due a bug within esp8266 causing reboot to hang  
 
-5. Once device is connected to WiFi and Broker, get IP from serial output and connect using Browser
+6. Once device is connected to WiFi and Broker, get IP from serial output and connect using Browser
        *User/Password are stored in ***User.h***
 
-4. Configure device parameters on web page  
+7. Configure device parameters on web page  
        - The MQTT section should be self explanatory  
        - The Inbound message is received by the device containing either **ON** or **OFF**  
        - The Outbound message is sent by the device containing the action carried out, either **ON** or **OFF**  
@@ -57,7 +57,7 @@
 
 **Above steps should be done over USB-->Serial interface until device is fully functioning**  
 
-5. Test device and once ok, turn off debugging within **User.h** and upload firmware one last time  
+8. Test device and once ok, turn off debugging within **User.h** and upload firmware one last time  
 
 
 -------------------------------------------------------------------------------------------------------------
