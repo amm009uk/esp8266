@@ -1,11 +1,14 @@
-# ESP8266
+# ESP8266 over multiple devices
 
-       ### you want to integrate the ESP8266 with your Home Automation system through MQTT messages
+## This project assumes the following:
+      ### you know what a ESP8266 device is and how to upload code to it
+      ### you have MQTT Broker running
+      ### you want to integrate the ESP8266 with your Home Automation system through MQTT messages
 
 -------------------------------------------------------------------------------------------------------------
 ## Features
 
-- Custom firmware to take control of the ESP8266 and integrate with MQTT Broker. The Broker would typically integrate with your Home Automation system 
+- Custom firmware to control ESP8266 and integrate with MQTT Broker. The Broker would typically integrate with your Home Automation system 
 
 - One firmware to support multiple devices:
     - SonOff Basic
@@ -27,24 +30,25 @@
 
 -------------------------------------------------------------------------------------------------------------
 ## Version
+  
 1.1 Initial version  
 
 -------------------------------------------------------------------------------------------------------------
 ## Device Setup
+  
 **For ease of initial setup, enable Serial output within **User.h** and monitor output. You will get the device IP and be able to monitor activity before final deployment**  
 
-1. Set your WiFi SSID and PASSWORD in **User.h**. *Only place you can do this*
+1. Set your WiFi SSID/PASSWORD in **User.h** - *Only place you can do this*
 
-2. Set your ESP8266 Web access USER and PASSWORD in **User.h**. *Only place you can do this*
+2. Set your ESP8266 Web access USER/PASSWORD in **User.h** - *Only place you can do this*
 
-3. Flash the file system *LittleFS in this case*
+3. Flash the file system - *LittleFS in this case*
 
 4. Flash firmware
 
 5. Use must power on/off after flashing firmware due a bug within esp8266 causing reboot to hang  
 
 6. Once device is connected to WiFi and Broker, get IP from serial output and connect using Browser
-       *User/Password are stored in ***User.h***
 
 7. Configure device parameters on web page  
        - The MQTT section should be self explanatory  
@@ -55,7 +59,7 @@
 **Above steps should be done over USB-->Serial interface until device is fully functioning**  
 
 8. Test device and once ok, turn off debugging within **User.h** and upload firmware one last time  
-
+       - You may upload on serial or using OTA
 
 -------------------------------------------------------------------------------------------------------------
 ## Finding device IP Address
