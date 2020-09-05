@@ -7,12 +7,12 @@
 
 - Custom firmware to take full control and integrate with an MQTT Broker. The Broker would typically integrate with your Home Automation system
 
-- One firmware to support multiple devices: 
-      SonOff Basic
-      SonOff Dual
-      Sonoff 4CH
-      Sonoff Light
-      One motion, One temperature & Up to four reed switches (door/window type)  
+- One firmware to support multiple devices:
+    1. SonOff Basic
+    2. SonOff Dual
+    3. Sonoff 4CH
+    4. Sonoff Light
+    5. One motion, One temperature & Up to four reed switches (door/window type)  
 
 - Device will respond to:
     1. MQTT messages
