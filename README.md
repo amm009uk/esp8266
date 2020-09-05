@@ -15,7 +15,7 @@
     - SonOff Dual   *(not complete)*
     - Sonoff 4CH    *(not complete)*
     - Sonoff Light  *(not complete)*
-    - One motion, one temperature & up to four reed switches (door/window type)  *(not complete)*
+    - ESP8266 board with one motion, one temperature & up to four reed switches *(not complete)*
 
 - Device will respond to:
     - MQTT messages
