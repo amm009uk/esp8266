@@ -43,14 +43,14 @@
 
 4. Use must power on/off after flashing firmware due a bug within esp8266 causing reboot to hang  
 
-5. Once device is connected to WiFi and Broker, get its IP from serial output and connect to it using Browser
+5. Once device is connected to WiFi and Broker, get IP from serial output and connect using Browser
        *User/Password are stored in ***User.h***
 
 4. Configure device parameters on web page  
        - The MQTT section should be self explanatory  
        - The Inbound message is received by the device containing either **ON** or **OFF**  
-       - The Outbound message is sent by the device containing the action carried out either **ON** or **OFF**  
-       - Once all parameters are correct, save settings and device will reboot and reconnect to WiFi and MQTT Broker  
+       - The Outbound message is sent by the device containing the action carried out, either **ON** or **OFF**  
+       - Once all parameters are correct, save settings and device will reboot and reconnect to WiFi and Broker  
 
 **Above steps should be done over USB-->Serial interface until device is fully functioning**  
 
@@ -59,12 +59,12 @@
 
 -------------------------------------------------------------------------------------------------------------
 ## Finding device IP Address
-To get the device IP address you have the following options:  
+To get the device IP after you have deployed, you have the following options:  
 
-  1. Look in your router to see WiFi clients  
+  1. Look in your router to see WiFi clients and try and figure it out
     
   2. (a) If already connected to WiFi and MQTT Broker, you can send a blank MQTT message **IP/Request**  
-     (b) Device will respond with a MQTT message **IP/Reply** and IP address in the payload  
+     (b) Device will respond with MQTT message **IP/Reply** and IP address is in the payload  
 
 -------------------------------------------------------------------------------------------------------------
 ## Credits
