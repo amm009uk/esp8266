@@ -1,9 +1,9 @@
 # ESP8266
 
-### This project assumes following:
-  #### you know what a "ESP8266" device is and how to upload code to it
-  #### you have MQTT Broker 
-  
+### This project assumes the following:
+       #### you know what a "ESP8266" device is and how to upload code to it
+       #### you have MQTT Broker 
+
 -------------------------------------------------------------------------------------------------------------
 ## Features
 
