@@ -9,9 +9,9 @@
 
 - One firmware to support multiple devices:
     1. SonOff Basic
-    2. SonOff Dual   (not complete)
-    3. Sonoff 4CH    (not complete)
-    4. Sonoff Light  (not complete)
+    2. SonOff Dual   *(not complete)*
+    3. Sonoff 4CH    *(not complete)*
+    4. Sonoff Light  *(not complete)*
     5. One motion, one temperature & up to four reed switches (door/window type)  *(not complete)*
 
 - Device will respond to:
@@ -21,7 +21,7 @@
 
 - WiFi or MQTT drop outs handled automatically
 
-- HTTP configuration parameters
+- MQTT parameters set over HTTP
 
 - OTA updates
 
@@ -31,20 +31,20 @@
 
 -------------------------------------------------------------------------------------------------------------
 ## Device Setup
-**For ease of initial setup, enable Serial debug output within **User.h** and monitor output. You will get the device IP and be able to monitor activity before final deployment**  
+**For ease of initial setup, enable Serial output within **User.h** and monitor output. You will get the device IP and be able to monitor activity before final deployment**  
 
-1. Set your WiFi SSID and PASSWORD in **User.h**. Only place you can do this
+1. Set your WiFi SSID and PASSWORD in **User.h**. *Only place you can do this*
 
-1. Set your ESP8266 Web access USER and PASSWORD in **User.h**. Only place you can do this
+1. Set your ESP8266 Web access USER and PASSWORD in **User.h**. *Only place you can do this*
 
-2. Flash the LittleFS file system
+2. Flash the file system *LittleFS in this case*
 
 3. Flash firmware
 
 4. Use must power on/off after flashing firmware due a bug within esp8266 causing reboot to hang  
 
-5. Once device is connected to WiFi, get its IP from serial output and connect to it using Browser
-       - User/Password are stored in **sonoff/src/User.h**  
+5. Once device is connected to WiFi and Broker, get its IP from serial output and connect to it using Browser
+       *User/Password are stored in **sonoff/src/User.h** *
 
 4. Configure device parameters on web page  
        - The MQTT section should be self explanatory  
