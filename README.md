@@ -44,7 +44,7 @@
 4. Use must power on/off after flashing firmware due a bug within esp8266 causing reboot to hang  
 
 5. Once device is connected to WiFi and Broker, get its IP from serial output and connect to it using Browser
-       *User/Password are stored in **sonoff/src/User.h** *
+       *User/Password are stored in ***User.h***
 
 4. Configure device parameters on web page  
        - The MQTT section should be self explanatory  
