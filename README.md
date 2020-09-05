@@ -19,7 +19,7 @@
     2. Onboard switches
     3. GPIO-14 switch if connected  
 
-- WiFi or MQTT drop outs automatically handled
+- WiFi or MQTT drop outs handled automatically
 
 - OTA updates
 

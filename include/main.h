@@ -1,6 +1,6 @@
 
 //
-const static  String version = "3.5";                                // Version control
+const static  String version = "1.1";                                // Version control
 //
 #include <Arduino.h>
 #include <LittleFS.h>                                                // LittleFS support
