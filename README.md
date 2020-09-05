@@ -1,7 +1,9 @@
 # ESP8266
 
-### This project assumes you know what a "ESP8266" device is and how to upload code to it
-
+### This project assumes following:
+  #### you know what a "ESP8266" device is and how to upload code to it
+  #### you have MQTT Broker 
+  
 -------------------------------------------------------------------------------------------------------------
 ## Features
 
@@ -50,7 +52,7 @@
        - The MQTT section should be self explanatory  
        - The Inbound message is received by the device containing either **ON** or **OFF**  
        - The Outbound message is sent by the device containing the action carried out, either **ON** or **OFF**  
-       - Once all parameters are correct, save settings and device will reboot and reconnect to WiFi and Broker  
+       - Once all parameters are correct, save settings and device will reboot and connect to WiFi + Broker  
 
 **Above steps should be done over USB-->Serial interface until device is fully functioning**  
 
@@ -63,7 +65,7 @@ To get the device IP after you have deployed, you have the following options:
 
   1. Look in your router to see WiFi clients and try and figure it out
     
-  2. (a) If already connected to WiFi and MQTT Broker, you can send a blank MQTT message **IP/Request**  
+  2. (a) Send a blank MQTT message **IP/Request**  
      (b) Device will respond with MQTT message **IP/Reply** and IP address is in the payload  
 
 -------------------------------------------------------------------------------------------------------------
