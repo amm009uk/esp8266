@@ -12,7 +12,7 @@
     2. SonOff Dual
     3. Sonoff 4CH
     4. Sonoff Light
-    5. One motion, One temperature & Up to four reed switches (door/window type)  
+    5. One motion, one temperature & up to four reed switches (door/window type)  
 
 - Device will respond to:
     1. MQTT messages
