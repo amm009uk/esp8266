@@ -1,8 +1,9 @@
 # ESP8266
 
 ### This project assumes the following:
-       #### you know what a "ESP8266" device is and how to upload code to it
-       #### you have MQTT Broker 
+       #### you know what a ESP8266 device is and how to upload code to it
+       #### you have MQTT Broker running
+       #### you want to integrate the ESP8266 with your Home Automation system through MQTT messages
 
 -------------------------------------------------------------------------------------------------------------
 ## Features
