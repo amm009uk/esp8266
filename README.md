@@ -5,21 +5,24 @@
 -------------------------------------------------------------------------------------------------------------
 ## Features
 
-- Custom firmware to take full control and integrate with MQTT Broker. The Broker would typically integrate with your Home Automation system so no device control over HTTP/Web
+- Custom firmware to take control over the ESP8266 and integrate with MQTT Broker. The Broker would typically integrate with your Home Automation system (no control over HTTP/Web)
 
 - One firmware to support multiple devices:
     1. SonOff Basic
-    2. SonOff Dual
-    3. Sonoff 4CH
-    4. Sonoff Light
-    5. One motion, one temperature & up to four reed switches (door/window type)  
+    2. SonOff Dual   (not complete)
+    3. Sonoff 4CH    (not complete)
+    4. Sonoff Light  (not complete)
+    5. One motion, one temperature & up to four reed switches (door/window type)  (not complete)
+        I am using a Wemos D1
 
 - Device will respond to:
     1. MQTT messages
-    2. Onboard switche/s
+    2. Onboard switches
     3. GPIO-14 switch if connected  
 
 - WiFi or MQTT drop outs handled automatically
+
+- HTTP configuration parameters
 
 - OTA updates
 
@@ -31,20 +34,24 @@
 ## Device Setup
 **For ease of initial setup, enable Serial debug output within **User.h** and monitor output. You will get the device IP and be able to monitor activity before final deployment**  
 
-1. Flash firmware
-    Use must power on/off after flashing firmware due a bug within esp8266 causing a reboot to hang  
+1. Set your WiFi SSID and PASSWORD in **User.h**. Only place you can do this
 
-2. Device will initially come up with its own *Access Point* called esp82XX-xxxxxxx. Connect to this and configure WiFi parameters. Once saved, device will reboot and connect to your WiFi  
+1. Set your ESP8266 Web access USER and PASSWORD in **User.h**. Only place you can do this
 
-3. Once device is connected to WiFi, get device IP from serial output and connect to it using Browser
-   User/Password are stored in **sonoff/src/User.h**  
+2. Flash the LittleFS file system
+
+3. Flash firmware
+
+4. Use must power on/off after flashing firmware due a bug within esp8266 causing reboot to hang  
+
+5. Once device is connected to WiFi, get its IP from serial output and connect to it using Browser
+       - User/Password are stored in **sonoff/src/User.h**  
 
 4. Configure device parameters on web page  
        - The MQTT section should be self explanatory  
-       - The Inbound message type is received by the device containing either **ON** or **OFF**  
-       - The Outbound message type is sent by the device containing the action carried out either **ON** or **OFF**  
-       - You may chose to wipe out out previously configured WiFi settings which will also reboot the device  
-       - Once all MQTT and message types are correct, save settings and device will reboot and reconnect to your WiFi and MQTT Broker  
+       - The Inbound message is received by the device containing either **ON** or **OFF**  
+       - The Outbound message is sent by the device containing the action carried out either **ON** or **OFF**  
+       - Once all parameters are correct, save settings and device will reboot and reconnect to WiFi and MQTT Broker  
 
 **Above steps should be done over USB-->Serial interface until device is fully functioning**  
 

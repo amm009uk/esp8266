@@ -40,8 +40,6 @@ const static  String version = "1.1";                                // Version 
 #endif
 
 #define MQTT_DELAY_RECONNECT  10000                                  // Delay between MQTT reconnects
-#define WWW_USER              "admin"                                // User for web page
-#define WWW_PASSWD            "esp8266ex"                            // Password for web page
 #define CONFIGFILE            "/config.json"                         // Configuration file holding various values
 #define STATEFILE             "/state.json"                          // Relay state file holding relay on/off status
 #define IP_REQUEST            "IP/Request"                           // MQTT IP Request Message
