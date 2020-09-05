@@ -5,15 +5,14 @@
 -------------------------------------------------------------------------------------------------------------
 ## Features
 
-- Custom firmware to take control over the ESP8266 and integrate with MQTT Broker. The Broker would typically integrate with your Home Automation system (no control over HTTP/Web)
+- Custom firmware to take control of the ESP8266 and integrate with MQTT Broker. The Broker would typically integrate with your Home Automation system 
 
 - One firmware to support multiple devices:
     1. SonOff Basic
     2. SonOff Dual   (not complete)
     3. Sonoff 4CH    (not complete)
     4. Sonoff Light  (not complete)
-    5. One motion, one temperature & up to four reed switches (door/window type)  (not complete)
-        I am using a Wemos D1
+    5. One motion, one temperature & up to four reed switches (door/window type)  *(not complete)*
 
 - Device will respond to:
     1. MQTT messages
