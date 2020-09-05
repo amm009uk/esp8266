@@ -1,30 +1,31 @@
-# Sonoff Basic
+# ESP8266
 
-### This project assumes you know what a "sonoff Basic" device is and how to upload code to it.
+### This project assumes you know what a "ESP8266" device is and how to upload code to it
 
 -------------------------------------------------------------------------------------------------------------
 ## Features
 
-- Custom firmware to take greater control and integrate with an MQTT Broker. The Broker would typically integrate with your Home Automation system. In my case I use openHAB  
+- Custom firmware to take full control and integrate with an MQTT Broker. The Broker would typically integrate with your Home Automation system
 
-- Device will respond to:  
-    1. MQTT message  
-    2. Onboard toggle  
+- One firmware to support multiple devices: 
+      SonOff Basic
+      SonOff Dual
+      Sonoff 4CH
+      Sonoff Light
+      One motion, One temperature & Up to four reed switches (door/window type)  
+
+- Device will respond to:
+    1. MQTT messages
+    2. Onboard switches
     3. GPIO-14 switch if connected  
 
-- WiFi or MQTT drop outs are handled automatically
+- WiFi or MQTT drop outs automatically handled
+
+- OTA updates
 
 -------------------------------------------------------------------------------------------------------------
 ## Version
-1.0 Initial version  
-1.1 Testing completed  
-1.2 Updated README  
-1.3 Added IP lookup  
-1.4 Added over the air serial output with Telnet (RemoteDebug library)  
-1.5 Moved web page to PROGMEM  
-1.6 Upgraded to Arduino 6.x  
-1.7 Minor stability changes  
-1.8 Removed RemoteDebug library  
+3.5 Initial version  
 
 -------------------------------------------------------------------------------------------------------------
 ## Device Setup
