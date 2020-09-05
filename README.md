@@ -11,16 +11,16 @@
 - Custom firmware to take control of the ESP8266 and integrate with MQTT Broker. The Broker would typically integrate with your Home Automation system 
 
 - One firmware to support multiple devices:
-    1. SonOff Basic
-    2. SonOff Dual   *(not complete)*
-    3. Sonoff 4CH    *(not complete)*
-    4. Sonoff Light  *(not complete)*
-    5. One motion, one temperature & up to four reed switches (door/window type)  *(not complete)*
+    - SonOff Basic
+    - SonOff Dual   *(not complete)*
+    - Sonoff 4CH    *(not complete)*
+    - Sonoff Light  *(not complete)*
+    - One motion, one temperature & up to four reed switches (door/window type)  *(not complete)*
 
 - Device will respond to:
-    1. MQTT messages
-    2. Onboard switches
-    3. GPIO-14 switch if connected  
+    - MQTT messages
+    - Onboard switches
+    - GPIO-14 switch if connected  
 
 - WiFi or MQTT drop outs handled automatically
 
