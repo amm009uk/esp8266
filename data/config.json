@@ -1,0 +1,17 @@
+{
+  "deviceID":      "NEW-SONOFF",
+  "MQTT": {
+  	"Server":      "192.168.2.180",
+    "Port":        1883,
+    "User":        "sonoff",
+    "Password":    "Jabeen01",
+    "inTopic1":    "cmnd/Power/LivingRoom",
+    "outTopic1":   "stat/Power/LivingRoom",
+    "inTopic2":    "cmnd/Power/LivingRoom",
+    "outTopic2":   "stat/Power/LivingRoom",
+    "inTopic3":    "cmnd/Power/LivingRoom",
+    "outTopic3":   "stat/Power/LivingRoom",
+    "inTopic4":    "cmnd/Power/LivingRoom",
+    "outTopic4":   "stat/Power/LivingRoom"
+  }
+}
