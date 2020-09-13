@@ -16,7 +16,7 @@
             <legend>
               <h4>&nbsp;Device ID&nbsp;</h4>
             </legend>
-            <table>
+            <table style="background-color:#b3cccc">
               <tr>
                 <td><label>Device ID</label></td>
                 <td><input type="text" name="deviceID" size="25" title="A Unique ID to help you find device"
@@ -28,7 +28,7 @@
             <legend>
               <h4>&nbsp;MQTT Broker Details&nbsp;</h4>
             </legend>
-            <table>
+            <table style="background-color:#b3cccc">
               <tr>
                 <td><label>Connected ?</label></td>
                 <td><label>{{_MQTT}}</label></td>
@@ -53,42 +53,84 @@
               </tr>
             </table>
           </fieldset>
-          <fieldset>
+          <fieldset {{_sonoff}}>
             <legend>
-              <h4>&nbsp;Message Details&nbsp;</h4>
+              <h4>&nbsp;Sonoff Message Details&nbsp;</h4>
             </legend>
-            <table>
+            <table style="background-color:#b3cccc">
               <tr>
-                <td><label>A::Inbound&nbsp;&nbsp;&nbsp;</label></td>
+                <th>No</th>
+                <th>Inbound</th>
+                <th>Outbound</th>
+              </tr>
+              <tr>
+                <td>1.</td>
                 <td><input type="text" name="mqtt_inTopic1" size="20" title="Eg. cmnd/Power/LivingRoom"
                     value={{_mqtt_inTopic1}}></td>
-                <td><label>&nbsp;&nbsp;A::Status&nbsp;&nbsp;&nbsp;</label></td>
                 <td><input type="text" name="mqtt_outTopic1" size="20" title="Eg. stat/Power/LivingRoom"
                     value={{_mqtt_outTopic1}}></td>
               </tr>
               <tr>
-                <td><label>B::Inbound&nbsp;&nbsp;&nbsp;</label></td>
+                <td>2.</td>
                 <td><input type="text" name="mqtt_inTopic2" size="20" title="Eg. cmnd/Power/LivingRoom"
                     value={{_mqtt_inTopic2}}></td>
-                <td><label>&nbsp;&nbsp;B::Status&nbsp;&nbsp;&nbsp;</label></td>
                 <td><input type="text" name="mqtt_outTopic2" size="20" title="Eg. stat/Power/LivingRoom"
                     value={{_mqtt_outTopic2}}></td>
               </tr>
               <tr>
-                <td><label>C::Inbound&nbsp;&nbsp;&nbsp;</label></td>
+                <td>3.</td>
                 <td><input type="text" name="mqtt_inTopic3" size="20" title="Eg. cmnd/Power/LivingRoom"
                     value={{_mqtt_inTopic3}}></td>
-                <td><label>&nbsp;&nbsp;C::Status&nbsp;&nbsp;&nbsp;</label></td>
                 <td><input type="text" name="mqtt_outTopic3" size="20" title="Eg. stat/Power/LivingRoom"
                     value={{_mqtt_outTopic3}}></td>
               </tr>
               <tr>
-                <td><label>D::Inbound&nbsp;&nbsp;&nbsp;</label></td>
+                <td>4.</td>
                 <td><input type="text" name="mqtt_inTopic4" size="20" title="Eg. cmnd/Power/LivingRoom"
                     value={{_mqtt_inTopic4}}></td>
-                <td><label>&nbsp;&nbsp;D::Status&nbsp;&nbsp;&nbsp;</label></td>
                 <td><input type="text" name="mqtt_outTopic4" size="20" title="Eg. stat/Power/LivingRoom"
                     value={{_mqtt_outTopic4}}></td>
+              </tr>
+            </table>
+          </fieldset>
+          <fieldset {{_wemos}}>
+            <legend>
+              <h4>&nbsp;WEMOS Message Details&nbsp;</h4>
+            </legend>
+            <table style="background-color:#b3cccc">
+              <tr>
+                <th>Sensor</th>
+                <th>Message</th>
+              </tr>
+              <tr>
+                <td>Heat</td>
+                <td><input type="text" name="mqtt_tempTopic" size="25" title="Eg. HeatIndex/LivingRoom" value={{_mqtt_tempTopic}}>
+                </td>
+              </tr>
+              <tr>
+                <td>Temperature</td>
+                <td><input type="text" name="mqtt_motionTopic" size="25" title="Eg. Security/Motion/LivingRoom" value={{_mqtt_motionTopic}}>
+                </td>
+              </tr>
+              <tr>
+                <td>Reed 1</td>
+                <td><input type="text" name="mqtt_reedTopic1" size="25" title="Eg. Security/Window/LivingRoomA" value={{_mqtt_reedTopic1}}>
+                </td>
+              </tr>
+              <tr>
+                <td>Reed 2</td>
+                <td><input type="text" name="mqtt_reedTopic2" size="25" title="Eg. Security/Window/LivingRoomB" value={{_mqtt_reedTopic2}}>
+                </td>
+              </tr>
+              <tr>
+                <td>Reed 3</td>
+                <td><input type="text" name="mqtt_reedTopic3" size="25" title="Eg. Security/Window/LivingRoomC" value={{_mqtt_reedTopic3}}>
+                </td>
+              </tr>
+              <tr>
+                <td>Reed 4</td>
+                <td><input type="text" name="mqtt_reedTopic4" size="25" title="Eg. Security/Window/LivingRoomD" value={{_mqtt_reedTopic4}}>
+                </td>
               </tr>
             </table>
           </fieldset>

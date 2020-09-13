@@ -40,7 +40,38 @@ void deviceInit()
 #ifdef SONOFF_4CH
 #endif
 
+  // Initialise PIN's
 #ifdef WEMOS
+  pinMode(BUILTIN_LED, OUTPUT);
+  digitalWrite(BUILTIN_LED, HIGH);
 #endif
+
+#ifdef TEMP_SENSOR
+  pinMode(DHT_PIN, INPUT);
+  debugln(F("Temp Sensor started"));
+  dht.begin(); // Start the DHT sensor
+#endif
+
+#ifdef MOTION_SENSOR
+  pinMode(MOTION_PIN, INPUT);
+#endif
+
+#ifdef REED_SENSOR1
+  pinMode(REED_PIN1, INPUT);
+#endif
+
+#ifdef REED_SENSOR2
+  pinMode(REED_PIN2, INPUT);
+#endif
+
+#ifdef REED_SENSOR3
+  pinMode(REED_PIN3, INPUT);
+#endif
+
+#ifdef REED_SENSOR4
+  pinMode(REED_PIN4, INPUT);
+#endif
+
+  delay(10);
 
 } // deviceInit()

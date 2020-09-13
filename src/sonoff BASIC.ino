@@ -1,4 +1,3 @@
-
 #ifdef SONOFF_BASIC
 void relayToggle()
 {
@@ -8,7 +7,7 @@ void relayToggle()
 	else
 		relayControl("OFF");
 
-	saveState();
+	saveSonoffState();
 
 	delay(10);
 } // relayToggle()

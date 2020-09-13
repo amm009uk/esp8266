@@ -3,10 +3,13 @@ void    connectWiFi();
 void    debug(String message);
 void    debugln(String message);
 
-bool    loadConfig();
-bool    saveConfig();
-bool    loadState();
-bool    saveState();
+bool    loadSonoffConfig();
+bool    saveSonoffConfig();
+bool    loadSonoffState();
+bool    saveSonoffState();
+
+bool    loadWemosConfig();
+bool    saveWemosConfig();
 
 void    handleNotFound();
 void    handleRoot();
@@ -35,4 +38,8 @@ void    relayControl(char* topic, String msgContents);
 
 #ifdef SONOFF_4CH
 void    relayControl();
+#endif
+
+#ifdef TEMP_SENSOR
+void    getDHTdata();
 #endif

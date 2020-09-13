@@ -1,0 +1,15 @@
+{
+  "deviceID":          "NEW",
+  "MQTT": {
+  	"Server":          "192.168.2.180",
+    "Port":            1883,
+    "User":            "sonoff",
+    "Password":        "Jabeen01",
+    "heat":            "HeatIndex/LivingRoom",
+    "motion":         "Security/Motion/LivingRoom",
+    "securityReed1":   "Security/Window/LivingRoomA",
+    "securityReed2":   "Security/Window/LivingRoomB",
+    "securityReed3":   "Security/Window/LivingRoomC",
+    "securityReed4":   "Security/Window/LivingRoomD"
+  }
+}

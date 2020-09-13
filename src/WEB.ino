@@ -20,9 +20,7 @@ void handleRoot()
     return httpServer.requestAuthentication(); // Request user + password
   }
 
-#ifdef SERIAL_DEBUG
   outputData();
-#endif
 
   String page; // Store web page
 
@@ -53,12 +51,20 @@ void handleRoot()
   else
     page.replace("{{_MQTT}}", "No");
 
+  #ifdef WEMOS
+    page.replace("{{_sonoff}}", "hidden");
+  #else
+    page.replace("{{_wemos}}", "hidden");
+  #endif
+
   page.replace("{{_version}}", version);
   page.replace("{{_deviceID}}", deviceID);
   page.replace("{{_mqtt_server}}", mqtt_server);
   page.replace("{{_mqtt_port}}", String(mqtt_port));
   page.replace("{{_mqtt_user}}", mqtt_user);
   page.replace("{{_mqtt_password}}", mqtt_password);
+
+#ifdef SONOFF
   page.replace("{{_mqtt_inTopic1}}", mqtt_inTopic1);
   page.replace("{{_mqtt_outTopic1}}", mqtt_outTopic1);
   page.replace("{{_mqtt_inTopic2}}", mqtt_inTopic2);
@@ -67,6 +73,16 @@ void handleRoot()
   page.replace("{{_mqtt_outTopic3}}", mqtt_outTopic3);
   page.replace("{{_mqtt_inTopic4}}", mqtt_inTopic4);
   page.replace("{{_mqtt_outTopic4}}", mqtt_outTopic4);
+#endif
+
+#ifdef WEMOS
+  page.replace("{{_mqtt_tempTopic}}", mqtt_tempTopic);
+  page.replace("{{_mqtt_motionTopic}}", mqtt_motionTopic);
+  page.replace("{{_mqtt_reedTopic1}}", mqtt_reedTopic1);
+  page.replace("{{_mqtt_reedTopic2}}", mqtt_reedTopic2);
+  page.replace("{{_mqtt_reedTopic3}}", mqtt_reedTopic3);
+  page.replace("{{_mqtt_reedTopic4}}", mqtt_reedTopic4);
+#endif
 
   httpServer.send(200, "text/html", page);
 
@@ -85,7 +101,7 @@ void handlesaveChanges()
   debugln(F("Saving changes..."));
 #endif
 
-  if (httpServer.args() != 14)
+  if (httpServer.args() != 20)
   {
 #ifdef SERIAL_DEBUG
     debug(F("Wrong number of args received from HTTP POST: "));
@@ -105,6 +121,8 @@ void handlesaveChanges()
   mqtt_port = httpServer.arg(2).toInt();
   strcpy(mqtt_user, httpServer.arg(3).c_str());
   strcpy(mqtt_password, httpServer.arg(4).c_str());
+
+#ifdef SONOFF
   strcpy(mqtt_inTopic1, httpServer.arg(5).c_str());
   strcpy(mqtt_outTopic1, httpServer.arg(6).c_str());
   strcpy(mqtt_inTopic2, httpServer.arg(7).c_str());
@@ -114,7 +132,19 @@ void handlesaveChanges()
   strcpy(mqtt_inTopic4, httpServer.arg(11).c_str());
   strcpy(mqtt_outTopic4, httpServer.arg(12).c_str());
 
-  saveConfig();
+  saveSonoffConfig();
+#endif
+
+#ifdef WEMOS
+  strcpy(mqtt_tempTopic, httpServer.arg(13).c_str());
+  strcpy(mqtt_motionTopic, httpServer.arg(14).c_str());
+  strcpy(mqtt_reedTopic1, httpServer.arg(15).c_str());
+  strcpy(mqtt_reedTopic2, httpServer.arg(16).c_str());
+  strcpy(mqtt_reedTopic3, httpServer.arg(17).c_str());
+  strcpy(mqtt_reedTopic4, httpServer.arg(18).c_str());
+ 
+  saveWemosConfig();
+#endif
 
   httpServer.send(200, "text/html", "<META http-equiv=\"refresh\" content=\"15;URL=/\">Changes saved! Rebooting please wait this page will refresh...");
 

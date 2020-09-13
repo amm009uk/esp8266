@@ -1,5 +1,5 @@
 {
-  "deviceID":      "NEW-SONOFF",
+  "deviceID":      "NEW",
   "MQTT": {
   	"Server":      "192.168.2.180",
     "Port":        1883,

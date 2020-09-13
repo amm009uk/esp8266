@@ -1,6 +1,6 @@
 
 //
-const static  String version = "1.1";                                // Version control
+const static  String version = "2.1";                                // Version control
 //
 #include <Arduino.h>
 #include <LittleFS.h>                                                // LittleFS support
@@ -11,9 +11,15 @@ const static  String version = "1.1";                                // Version 
 #include <PubSubClient.h>                                            // MQTT Client Publish and Subscribe
 #include <DNSServer.h>                                               // Local DNS Server used for redirecting all requests to the configuration portal
 
-#include <..\include\user.h>																				 //	Contains custom	settings that	MUST be	modified
-#include <..\include\functions.h>																		 //	Predefined functions
+#include <..\include\functions.h> //	Predefined functions
+#include <..\include\user.h> //	Contains custom	settings that	MUST be	modified
+#ifdef TEMP_SENSOR
+#include <DHT.h> // DHT sensor library by Adafruit
+#endif
 
+
+/******************************************************************************************************/
+  
 #ifdef SONOFF_BASIC
 #define LED_PIN								13																		 // LED indicator
 #define RELAY_PIN							12																		 // Relay for power switch
@@ -37,10 +43,35 @@ const static  String version = "1.1";                                // Version 
 #endif
 
 #ifdef WEMOS
+#define BUILTIN_LED D4 // Built-in LED on the Wemos D1
 #endif
 
+#ifdef TEMP_SENSOR
+#define DHTTYPE DHT22                                                // DHT 22 (AM2302), AM2321
+#define DHT_PIN D1                                                   // Pin for Temperature sensor Wemos D1 mini pro
+#endif
+#ifdef MOTION_SENSOR
+#define MOTION_PIN D2                                                // Pin for motion sensor
+#endif
+#ifdef REED_SENSOR1
+#define REED_PIN1 D5                                                 // Pin for door/window sensor 1
+#endif
+#ifdef REED_SENSOR2 
+#define REED_PIN2 D6                                                 // Pin for door/window sensor 2
+#endif 
+#ifdef REED_SENSOR3
+#define REED_PIN3 D7                                                 // Pin for door/window sensor 3
+#endif 
+#ifdef REED_SENSOR4
+#define REED_PIN4 D8                                                 // Pin for door/window sensor 4
+#endif
+
+
 #define MQTT_DELAY_RECONNECT  10000                                  // Delay between MQTT reconnects
-#define CONFIGFILE            "/config.json"                         // Configuration file holding various values
-#define STATEFILE             "/state.json"                          // Relay state file holding relay on/off status
+
+#define SONOFF_CONFIG         "/sonoff_config.json"                  // Configuration file sonoff messages
+#define WEMOS_CONFIG          "/wemos_config.json"                   // Configuration file for wemos devices
+#define SONOFF_STATE          "/sonoff_state.json"                   // Relay state file holding relay on/off status
+
 #define IP_REQUEST            "IP/Request"                           // MQTT IP Request Message
 #define IP_REPLY              "IP/Reply/"                            // MQTT IP Reply Message

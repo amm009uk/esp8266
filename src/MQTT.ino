@@ -22,33 +22,26 @@ boolean MQTTconnect()
     // Subscribe to relevent messages with first one required by ANY device
     //
 
+#if defined SONOFF_BASIC || defined SONOFF_LIGHT
     MQTTclient.subscribe(mqtt_inTopic1);
+#endif
 
 #ifdef SONOFF_DUAL
+    MQTTclient.subscribe(mqtt_inTopic1);
     MQTTclient.subscribe(mqtt_inTopic2);
 #endif
 
 #ifdef SONOFF_4CH
+    MQTTclient.subscribe(mqtt_inTopic1);
     MQTTclient.subscribe(mqtt_inTopic2);
     MQTTclient.subscribe(mqtt_inTopic3);
     MQTTclient.subscribe(mqtt_inTopic4);
 #endif
 
 //
-// Now publish state of device so openHAB stays in sync with currnt state
+// Now publish state of device so openHAB stays in sync with current state
 //
-#ifdef SONOFF_BASIC
-    if (!digitalRead(RELAY_PIN))
-    {
-      MQTTclient.publish(mqtt_outTopic1, "OFF");
-    }
-    else
-    {
-      MQTTclient.publish(mqtt_outTopic1, "ON");
-    }
-#endif
-
-#ifdef SONOFF_LIGHT
+#if defined SONOFF_BASIC || defined SONOFF_LIGHT
     if (!digitalRead(RELAY_PIN))
     {
       MQTTclient.publish(mqtt_outTopic1, "OFF");
@@ -113,10 +106,10 @@ void callback(char *topic, byte *payload, unsigned int length)
   if (strcmp(topic, IP_REQUEST) == 0)
   { // Check if message is for IP request
 
-    String replyMessage = IP_REPLY; // Build the MQTT reply messsage name
-    replyMessage.concat(deviceID);  // ...
+    String replyMessage = IP_REPLY;                                  // Build the MQTT reply messsage name
+    replyMessage.concat(deviceID);                                   // ...
 
-    String Msg = WiFi.localIP().toString(); // Build MQTT message payload contents
+    String Msg = WiFi.localIP().toString();                          // Build MQTT message payload contents
 
 #ifdef SERIAL_DEBUG
     debug(F("MQTT Publish "));
@@ -125,7 +118,7 @@ void callback(char *topic, byte *payload, unsigned int length)
     debugln(Msg.c_str());
 #endif
 
-    MQTTclient.publish(replyMessage.c_str(), Msg.c_str()); // Publish message to Broker
+    MQTTclient.publish(replyMessage.c_str(), Msg.c_str());           // Publish message to Broker
 
     delay(10);
     return;
@@ -138,15 +131,17 @@ void callback(char *topic, byte *payload, unsigned int length)
   //
   // Get message contents
   //
+#ifdef SONOFF
   String msgContents;
   char receivedChar;
+
   if ((strcmp(topic, mqtt_inTopic1) == 0) || (strcmp(topic, mqtt_inTopic2) == 0) || (strcmp(topic, mqtt_inTopic3) == 0) || (strcmp(topic, mqtt_inTopic4) == 0))
-  {
-    for (int i = 0; (i < (int)length); i++)
     {
-      receivedChar = (char)payload[i];
-      msgContents.concat(receivedChar);
-    }
+      for (int i = 0; (i < (int)length); i++)
+      {
+        receivedChar = (char)payload[i];
+        msgContents.concat(receivedChar);
+      }
 
 #ifdef SERIAL_DEBUG
     debug(F("..Payload: "));
@@ -156,11 +151,13 @@ void callback(char *topic, byte *payload, unsigned int length)
 
 #if defined SONOFF_BASIC || defined SONOFF_LIGHT
   relayControl(msgContents);
-  saveState();
+  saveSonoffState();
 #endif
 
 #if defined SONOFF_DUAL
   relayControl(topic, msgContents);
+#endif
+
 #endif
 
   delay(10);
